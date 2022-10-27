@@ -17,9 +17,14 @@ public class GetController {
     public String getName(){
         return "Ajin";
     }
-
+    // URL 경로에 값을 담아 보내기
     @GetMapping("/variable/{variable}")
     public String getVariable(@PathVariable String variable){
         return variable;
+    }
+    // 쿼리 형식으로 값 전당
+    @GetMapping("/request")
+    public String getRequestParam(@RequestParam String name, @RequestParam String email, @RequestParam String age){
+        return name + " " + email + " " + age;
     }
 }
