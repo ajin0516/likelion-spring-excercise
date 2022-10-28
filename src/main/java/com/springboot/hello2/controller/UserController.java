@@ -3,6 +3,8 @@ package com.springboot.hello2.controller;
 
 import com.springboot.hello2.Dao.UserDao;
 import com.springboot.hello2.domain.User;
+import com.springboot.hello2.domain.dto.UserRequestDto;
+import io.swagger.models.auth.In;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,10 +37,18 @@ public class UserController {
     }
 
 
-    @PostMapping("/user/{id}&{name}&{password}")
-    public void add(@PathVariable String id, @PathVariable String name, @PathVariable String password) {
-        userDao.add(new User(id, name, password));
-    }
+//    @PostMapping("/user/{id}&{name}&{password}")
+//    public void add(@PathVariable String id, @PathVariable String name, @PathVariable String password) {
+//        userDao.add(new User(id, name, password));
+//    }
 
+    // <Integer> 타입으로 바뀌면서 UserDao의 add를 void에서 int로 바꿔주니 에러 해결
+    @PostMapping("/user")
+    public ResponseEntity<Integer> add(@RequestBody UserRequestDto userRequestDto){
+        User user = new User(userRequestDto.getId(), userRequestDto.getName(), userRequestDto.getPassword());
+        return ResponseEntity
+                .ok()
+                .body(userDao.add(user));
+    }
 
 }

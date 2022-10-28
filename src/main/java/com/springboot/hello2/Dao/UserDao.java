@@ -21,8 +21,8 @@ public class UserDao {
         return this.jdbcTemplate.update("DELETE FROM last_db");
     }
 
-    public void add(User user){
-        this.jdbcTemplate.update("INSERT INTO last_db(id,name,password) VALUES (?,?,?)",
+    public int add(User user){
+        return this.jdbcTemplate.update("INSERT INTO last_db(id,name,password) VALUES (?,?,?)",
                 user.getId(), user.getName(), user.getPassword());
     }
 
