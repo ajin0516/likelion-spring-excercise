@@ -3,6 +3,7 @@ package com.springboot.hello2.controller;
 
 import com.springboot.hello2.Dao.UserDao;
 import com.springboot.hello2.domain.User;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,19 +17,27 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public User addAndGet(){
-        userDao.add(new User("2","leeajin","486"));
+    public User addAndGet() {
+        userDao.add(new User("2", "leeajin", "486"));
         return userDao.findById("2");
     }
 
+//    @DeleteMapping("/user")
+//    public void delete(){
+//        userDao.deleteAll();
+//    }
+    // Dto 적용
     @DeleteMapping("/user")
-    public void delete(){
-        userDao.deleteAll();
+    public ResponseEntity<Integer> deleteAll() {
+        return ResponseEntity
+                .ok()
+                .body(userDao.deleteAll());
     }
 
+
     @PostMapping("/user/{id}&{name}&{password}")
-    public void add(@PathVariable String id, @PathVariable String name, @PathVariable String password){
-        userDao.add(new User(id,name,password));
+    public void add(@PathVariable String id, @PathVariable String name, @PathVariable String password) {
+        userDao.add(new User(id, name, password));
     }
 
 
