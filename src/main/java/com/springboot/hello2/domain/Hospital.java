@@ -7,10 +7,10 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
+@AllArgsConstructor // 모든 필드 값을 파라미터로 받는 생성자
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor // 기본생성사 생성
 public class Hospital {
     private int id;
     private String openServiceName;

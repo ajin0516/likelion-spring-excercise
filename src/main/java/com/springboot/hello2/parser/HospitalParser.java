@@ -9,9 +9,10 @@ public class HospitalParser implements Parser<Hospital>{
 
     @Override
     public Hospital parse(String str) {
-        String[] row = str.split("\",\"");
+        String[] row = str.split("\",\"");   // "," 기준으로 split -> 주소에 , 있을수도
 
         Hospital hospital = new Hospital();
+
         hospital.setId(Integer.parseInt(row[0].replace("\"", "")));
         hospital.setOpenServiceName(row[1]);
         hospital.setOpenLocalGovernmentCode(Integer.parseInt(row[3]));
