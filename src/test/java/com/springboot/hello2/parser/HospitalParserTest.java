@@ -52,10 +52,11 @@ class HospitalParserTest {
         assertEquals(0, hospital.getTotalNumberOfBeds());
         assertEquals(52.29f, hospital.getTotalAreaSize());
     }
+}
 
-    @Test
-    @DisplayName("10만건 이상 데이터가 파싱이 되는지")
-    void oneHundredThousandRows() throws IOException {
+//    @Test
+//    @DisplayName("10만건 이상 데이터가 파싱이 되는지")
+//    void oneHundredThousandRows() throws IOException {
         // 서버환경에서 build할 때 문제가 생길 수 있습니다.
         // 어디에서든지 실행할 수 있게 짜는 것이 목표.
 
@@ -71,11 +72,11 @@ class HospitalParserTest {
 //            System.out.println(hospitalList.get(i).getHospitalName());
 //        }
 //        System.out.printf("파싱된 데이터 개수:%d ",cnt);
-    }
+//    }
 
-    @Test
-    @DisplayName("Hospital이 INSERT가 잘 되는지")
-    void add(){
+//    @Test
+//    @DisplayName("Hospital이 INSERT가 잘 되는지")
+//    void add(){
 //        hospitalDao.deleteAll();
 //        assertEquals(0, hospitalDao.getCount());
 //        HospitalParser hp = new HospitalParser();
@@ -104,14 +105,14 @@ class HospitalParserTest {
 //        assertEquals(selectedHospital.getLicenseDate(),hospital.getLicenseDate());
 //
 //        // findById, delete, getCount
-    }
+//    }
 
 
-    @Test
-    @DisplayName("getCount가 잘 되는지")
-    void count() {
-
-    }
+//    @Test
+//    @DisplayName("getCount가 잘 되는지")
+//    void count() {
+//
+//    }
 //    @Test
 //    @DisplayName("한줄만 출력")
 //    void readByLineTest(String filename) throws IOException {
@@ -120,6 +121,6 @@ class HospitalParserTest {
 //        String str = reader.readLine();
 //        System.out.println(str);
 //    }
-}
+//}
 
 
